@@ -8,6 +8,10 @@
       "outputs": []
     },
     "dev": {
+      "dependsOn": ["soare-db#docker:postgres"],
+      "cache": false
+    },
+    "docker:postgres": {
       "cache": false
     }
   }

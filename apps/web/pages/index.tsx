@@ -1,10 +1,8 @@
-import { Button } from "ui";
+import * as React from 'react';
+import { Box } from '@mui/material';
 
-export default function Web() {
-  return (
-    <div>
-      <h1>Web</h1>
-      <Button />
-    </div>
-  );
-}
+const Web = () => (
+  <Box>Hello</Box>
+);
+
+export default Web;

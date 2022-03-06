@@ -1,0 +1,11 @@
+{
+  "name": "soare-db",
+  "version": "0.1.0",
+  "author": "chrstnfrrs",
+  "license": "MIT",
+  "scripts": {
+    "docker:postgres:start": "docker compose up -d",
+    "docker:postgres:stop": "docker compose down",
+    "docker:postgres": "docker compose down && docker compose up -d"
+  }
+}
