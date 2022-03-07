@@ -4,8 +4,9 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
-    "lint": {
-      "outputs": []
+    "coverage": {
+      "dependsOn": ["^coverage"],
+      "outputs": ["coverage/**"]
     },
     "dev": {
       "dependsOn": ["soare-db#docker:postgres"],
@@ -13,6 +14,12 @@
     },
     "docker:postgres": {
       "cache": false
+    },
+    "lint": {
+      "outputs": []
+    },
+    "test": {
+      "outputs": []
     }
   }
 }

@@ -9,8 +9,10 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "coverage": "turbo run coverage",
+    "format": "prettier --write \"**/*.{js, jsx, ts, tsx, md}\"",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{js, jsx, ts, tsx, md}\""
+    "test": "turbo run test"
   },
   "devDependencies": {
     "prettier": "^2.5.1",

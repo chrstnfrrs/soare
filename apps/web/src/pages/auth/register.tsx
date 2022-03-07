@@ -11,9 +11,9 @@ import {
 } from '@mui/material';
 import { signIn } from 'next-auth/react';
 
-import Navless from '../../layouts/navless';
-import useForm from '../../hooks/use-form';
-import { RegisterMutation } from '../../graphql/mutations/auth-mutations';
+import Navless from '../../../layouts/navless';
+import useForm from '../../../hooks/use-form';
+import { RegisterMutation } from '../../../graphql/mutations/auth-mutations';
 
 const registerConfig = {
   email: {

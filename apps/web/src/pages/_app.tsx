@@ -5,7 +5,6 @@ import { SessionProvider } from 'next-auth/react';
 
 import client from '../graphql/adapters/client';
 import DefaultLayout from '../layouts/default';
-import '../styles.css';
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   const theme = createTheme({
