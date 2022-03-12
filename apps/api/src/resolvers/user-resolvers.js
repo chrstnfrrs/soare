@@ -1,14 +1,16 @@
+import * as UserServices from '../services/user-services';
 import * as UserRepository from '../repositories/user-repositories';
 
 const create = async (_root, args, _context) => {
-  console.log('args', args);
+  try {
+    const { input: userArgs } = args;
 
-  return {
-    id: '1',
-    email: args.input.email,
-    firstName: args.input.firstName,
-    lastName: args.input.lastName,
-  };
+    const user = await UserServices.create(userArgs);
+
+    return user;
+  } catch (error) {
+    console.log('error');
+  }
 };
 
 const get = async () => {
@@ -19,13 +21,20 @@ const get = async () => {
   return users;
 };
 
-const login = async (_root, args, _context) => {
-  return {
-    id: '1',
-    email: args.input.email,
-    firstName: 'Christian',
-    lastName: 'Farris',
-  };
+const getByEmail = async (root, args, context) => {
+  try {
+    const { email } = args;
+
+    const user = await UserServices.getByEmail(email);
+
+    return user;
+  } catch (error) {
+    console.log('error');
+  }
 };
 
-export { create, get, login };
+// const getById = async (root, args, context) => {
+
+// };
+
+export { create, get, getByEmail };

@@ -6,9 +6,9 @@ const resolvers = [
     Query: {
       hello: HelloResolvers.get,
       users: UserResolvers.get,
+      userByEmail: UserResolvers.getByEmail,
     },
     Mutation: {
-      loginUser: UserResolvers.login,
       createUser: UserResolvers.create,
     },
   },

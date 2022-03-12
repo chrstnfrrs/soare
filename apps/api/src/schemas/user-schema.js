@@ -2,11 +2,11 @@ import { gql } from 'apollo-server';
 
 const UserSchema = gql`
   extend type Query {
+    userByEmail(email: String!): User!
     users: [User]!
   }
 
   extend type Mutation {
-    loginUser(input: UserCredentials!): User!
     createUser(input: UserInput!): User!
   }
 
