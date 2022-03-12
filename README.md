@@ -2,6 +2,8 @@
 
 This is the soare project.
 
+[![Lint](https://github.com/chrstnfrrs/soare/actions/workflows/lint.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/lint.yaml)
+
 ## Getting Started
 
 - `yarn install`: install dependencies
