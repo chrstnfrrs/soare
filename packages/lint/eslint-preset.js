@@ -8,6 +8,7 @@ module.exports = {
     },
   },
   rules: {
+    'node/no-unpublished-import': 'off',
     '@next/next/no-html-link-for-pages': 'off',
     'import/no-unresolved': 'off',
     'react/jsx-curly-brace-presence': 'off',
@@ -18,6 +19,5 @@ module.exports = {
     'objects/no-object-properties-first-line': 'off',
     'objects/no-object-properties-last-line': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/jsx-filename-extension': [2, { extensions: ['.tsx'] }],
   },
 };

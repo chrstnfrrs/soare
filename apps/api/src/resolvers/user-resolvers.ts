@@ -1,7 +1,7 @@
 import * as UserServices from '../services/user-services';
 import * as UserRepository from '../repositories/user-repositories';
 
-const create = async (_root, args, _context) => {
+const create = async (_root, args) => {
   try {
     const { input: userArgs } = args;
 
@@ -9,19 +9,17 @@ const create = async (_root, args, _context) => {
 
     return user;
   } catch (error) {
-    console.log('error');
+    return new Error(error);
   }
 };
 
 const get = async () => {
   const users = await UserRepository.select();
 
-  console.log('users', users);
-
   return users;
 };
 
-const getByEmail = async (root, args, context) => {
+const getByEmail = async (_root, args) => {
   try {
     const { email } = args;
 
@@ -29,12 +27,8 @@ const getByEmail = async (root, args, context) => {
 
     return user;
   } catch (error) {
-    console.log('error');
+    return new Error(error);
   }
 };
-
-// const getById = async (root, args, context) => {
-
-// };
 
 export { create, get, getByEmail };

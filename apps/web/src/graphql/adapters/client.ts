@@ -1,10 +1,22 @@
-import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+import {
+  ApolloClient,
+  InMemoryCache,
+  NormalizedCacheObject,
+} from '@apollo/client';
 
-const client = new ApolloClient({
-  link: new HttpLink({
-    uri: 'http://localhost:8888/graphql',
-  }),
-  cache: new InMemoryCache(),
-});
+let client = undefined;
 
-export default client;
+const get = (): ApolloClient<NormalizedCacheObject> => {
+  if (client) {
+    return client;
+  }
+
+  client = new ApolloClient({
+    cache: new InMemoryCache(),
+    uri: process.env.SANITY_URL,
+  });
+
+  return client;
+};
+
+export { get };

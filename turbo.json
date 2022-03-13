@@ -4,10 +4,6 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]
     },
-    "coverage": {
-      "dependsOn": ["^coverage"],
-      "outputs": ["coverage/**"]
-    },
     "dev": {
       "dependsOn": ["soare-db#docker:postgres"],
       "cache": false
@@ -20,6 +16,10 @@
     },
     "test": {
       "outputs": []
+    },
+    "test:coverage": {
+      "dependsOn": ["^test:coverage"],
+      "outputs": ["coverage/**"]
     }
   }
 }

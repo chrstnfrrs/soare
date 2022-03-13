@@ -2,13 +2,19 @@
   "name": "soare-web",
   "version": "0.0.0",
   "private": true,
+  "files": [
+    "src",
+    "tests"
+  ],
   "scripts": {
     "build": "next build",
     "coverage": "vitest --coverage",
     "dev": "NODE_OPTIONS=--max_old_space_size=4096 next dev",
     "lint": "next lint",
     "start": "next start",
-    "test": "vitest"
+    "test": "vitest --run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --run --coverage"
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",

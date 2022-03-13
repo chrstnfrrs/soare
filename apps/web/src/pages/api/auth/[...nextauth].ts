@@ -1,8 +1,8 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-import client from '../../../graphql/adapters/client';
-import { LoginMutation } from '../../../graphql/mutations/auth-mutations';
+import * as GraphqlClient from '../../../graphql/adapters/client';
+import * as UserQueries from '../../../graphql/queries/user-queries';
 
 // eslint-disable-next-line new-cap
 export default NextAuth({
@@ -26,16 +26,17 @@ export default NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       authorize: async ({ email, password }) => {
-        await client.mutate({
-          mutation: LoginMutation,
+        const client = GraphqlClient.get();
+
+        await client.query({
+          query: UserQueries.UserByCredentials,
           variables: {
-            email,
-            password,
+            input: {
+              email,
+              password,
+            },
           },
         });
-
-        // Add logic here to look up the user from the credentials supplied
-        // @TODO: Post request to login user
 
         // Any object returned will be saved in `user` property of the JWT
         // If you return null then an error will be displayed advising the user to check their details.
