@@ -19,5 +19,14 @@ module.exports = {
     'objects/no-object-properties-first-line': 'off',
     'objects/no-object-properties-last-line': 'off',
     'react/react-in-jsx-scope': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: false,
+        optionalDependencies: false,
+        peerDependencies: false,
+        packageDir: './',
+      },
+    ],
   },
 };

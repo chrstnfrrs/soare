@@ -1,14 +1,13 @@
-import { gql } from '@apollo/client';
-
-const UserByCredentials = gql`
-  query UserByCredentials($credentials: UserCredentials!) {
-    userByCredentials(input: $credentials) {
+const UserByCredentials = `
+  query UserByCredentials($input: UserCredentials!) {
+    userByCredentials(input: $input) {
+      id
       email
     }
   }
 `;
 
-const UserByEmail = gql`
+const UserByEmail = `
   query UserByEmail($email: String!) {
     userByEmail(email: $email) {
       email
@@ -16,7 +15,17 @@ const UserByEmail = gql`
   }
 `;
 
-const AllUsers = gql`
+const UserById = `
+  query UserById($id: ID!) {
+    userById(id: $id) {
+      email
+      firstName
+      lastName
+    }
+  }
+`;
+
+const AllUsers = `
   query AllUsers {
     users {
       email
@@ -24,4 +33,4 @@ const AllUsers = gql`
   }
 `;
 
-export { UserByCredentials, UserByEmail, AllUsers };
+export { UserByCredentials, UserByEmail, UserById, AllUsers };

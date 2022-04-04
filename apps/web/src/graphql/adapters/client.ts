@@ -1,22 +1,33 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  NormalizedCacheObject,
-} from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { $fetch } from 'ohmyfetch';
 
-let client = undefined;
+const query = async ({ query, variables = {} }) => {
+  try {
+    const { data, error } = await $fetch('/api/graphql', {
+      baseURL: process.env.URL,
+      body: {
+        query,
+        variables,
+      },
+      credentials: 'include',
+      mode: 'same-origin',
+      method: 'POST',
+    });
 
-const get = (): ApolloClient<NormalizedCacheObject> => {
-  if (client) {
-    return client;
+    if (error) {
+      throw new Error(error);
+    }
+
+    return { data, error: false };
+  } catch (error) {
+    return { data: {}, error };
   }
-
-  client = new ApolloClient({
-    cache: new InMemoryCache(),
-    uri: process.env.SANITY_URL,
-  });
-
-  return client;
 };
 
-export { get };
+const client = new ApolloClient({
+  credentials: 'include',
+  cache: new InMemoryCache(),
+  uri: 'http://localhost:3000/api/graphql',
+});
+
+export { client, query };

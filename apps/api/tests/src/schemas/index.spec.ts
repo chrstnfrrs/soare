@@ -1,4 +1,4 @@
-import { gql } from 'apollo-server';
+import { gql } from 'apollo-server-express';
 
 import Schema from '../../../src/schemas';
 import HelloSchema from '../../../src/schemas/hello-schema';

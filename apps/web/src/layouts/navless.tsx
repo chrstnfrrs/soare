@@ -4,6 +4,7 @@ import { grey } from '@mui/material/colors';
 const Navless = ({ children }) => {
   return (
     <Container
+      data-testid='navless-layout'
       disableGutters
       sx={{
         display: 'flex',

@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import gql from 'graphql-tag';
 
 const RegisterUser = gql`
   mutation RegisterUser($input: UserInput!) {
@@ -8,4 +8,12 @@ const RegisterUser = gql`
   }
 `;
 
-export { RegisterUser };
+const SignInWithGoogle = `
+  mutation SignInWithGoogle($input: GoogleUserInput!) {
+    signInWithGoogle(input: $input) {
+      email
+    }
+  }
+`;
+
+export { RegisterUser, SignInWithGoogle };

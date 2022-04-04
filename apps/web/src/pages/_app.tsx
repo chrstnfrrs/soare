@@ -3,8 +3,9 @@ import { ApolloProvider } from '@apollo/client';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { SessionProvider } from 'next-auth/react';
 
-import * as GraphqlClient from '../graphql/adapters/client';
+import { client } from '../graphql/adapters/client';
 import DefaultLayout from '../layouts/default';
+import Auth from '../components/auth';
 import '../styles.css';
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
@@ -32,13 +33,19 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
   const getLayout =
     Component.getLayout || ((page) => <DefaultLayout>{page}</DefaultLayout>);
 
-  const client = GraphqlClient.get();
-
   return (
     <ApolloProvider client={client}>
       <SessionProvider session={session}>
         <ThemeProvider theme={theme}>
-          {getLayout(<Component {...pageProps} />)}
+          {getLayout(
+            Component.auth ? (
+              <Auth>
+                <Component {...pageProps} />
+              </Auth>
+            ) : (
+              <Component {...pageProps} />
+            ),
+          )}
         </ThemeProvider>
       </SessionProvider>
     </ApolloProvider>

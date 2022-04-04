@@ -1,19 +1,23 @@
-import { ApolloServer } from 'apollo-server';
+import express from 'express';
+import { ApolloServer } from 'apollo-server-express';
 
 import resolvers from './resolvers';
 import typeDefs from './schemas';
 
-const startServer = () => {
-  const server = new ApolloServer({
-    introspection: true,
-    resolvers,
-    typeDefs,
-  });
+const server = new ApolloServer({
+  introspection: true,
+  resolvers,
+  typeDefs,
+});
 
-  server.listen(8888).then(() => {
-    // eslint-disable-next-line no-console
-    console.log(`🚀  Server ready at http://localhost:8888/graphql`);
-  });
-};
+const app = express();
 
-startServer();
+await server.start();
+
+server.applyMiddleware({ app });
+
+if (process.env.NODE_ENV === 'production') {
+  app.listen(3004);
+}
+
+export const viteApp = app;

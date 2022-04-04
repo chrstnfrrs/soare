@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react';
 import {
   Button,
@@ -8,30 +9,23 @@ import {
   CardHeader,
   Stack,
   TextField,
+  Typography,
 } from '@mui/material';
-// import Link from 'next/link';
 
 import Navless from '../../layouts/navless';
-import useForm from '../../hooks/use-form';
-
-const loginConfig = {
-  email: {
-    name: 'email',
-    type: 'string',
-  },
-  password: {
-    name: 'password',
-    type: 'string',
-  },
-};
+import { GoogleButton } from '../../components/auth/google-button';
 
 const Login = () => {
-  const { input, setInput } = useForm(loginConfig);
+  const router = useRouter();
+  const { error } = router.query;
+
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   const loginUser = () => {
     signIn('credentials', {
-      email: input.email,
-      password: input.password,
+      email,
+      password,
     });
   };
 
@@ -43,17 +37,17 @@ const Login = () => {
           <TextField
             focused
             label='Email'
-            onChange={(e) => setInput('email', e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             type='text'
-            value={input.email}
+            value={email}
             variant='standard'
           />
           <TextField
             focused
             label='Password'
-            onChange={(e) => setInput('password', e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             type='password'
-            value={input.password}
+            value={password}
             variant='standard'
           />
           {/*
@@ -62,10 +56,23 @@ const Login = () => {
             */}
         </Stack>
       </CardContent>
-      <CardActions>
-        <Button onClick={loginUser} sx={{ flex: 1 }} variant='contained'>
+      <CardActions
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          boxSizing: 'border-box',
+          gap: 2,
+        }}
+      >
+        <Button onClick={loginUser} sx={{ width: '100%' }} variant='contained'>
           {'Login'}
         </Button>
+        <hr style={{ width: '100%' }} />
+        <GoogleButton onClick={() => signIn('google')}>
+          {'Register with Google'}
+        </GoogleButton>
+        {Boolean(error) && <Typography color='error'>{error}</Typography>}
       </CardActions>
     </Card>
   );

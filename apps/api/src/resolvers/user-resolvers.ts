@@ -1,3 +1,5 @@
+import { UserInputError } from 'apollo-server-express';
+
 import * as UserServices from '../services/user-services';
 import * as UserRepository from '../repositories/user-repositories';
 
@@ -13,10 +15,34 @@ const create = async (_root, args) => {
   }
 };
 
+const deleteById = async (_root, args) => {
+  try {
+    const { id } = args;
+
+    const isDeleted = Boolean(await UserServices.deleteById(id));
+
+    return isDeleted;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
 const get = async () => {
   const users = await UserRepository.select();
 
   return users;
+};
+
+const getByCredentials = async (_root, args) => {
+  try {
+    const { input: credentials } = args;
+
+    const user = await UserServices.getByCredentials(credentials);
+
+    return user;
+  } catch (error) {
+    return new UserInputError(error);
+  }
 };
 
 const getByEmail = async (_root, args) => {
@@ -31,4 +57,36 @@ const getByEmail = async (_root, args) => {
   }
 };
 
-export { create, get, getByEmail };
+const getById = async (_root, args) => {
+  try {
+    const { id } = args;
+
+    const user = await UserServices.getById(id);
+
+    return user;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+const signInWithGoogle = async (_root, args) => {
+  try {
+    const { input: userArgs } = args;
+
+    const user = await UserServices.signInWithGoogle(userArgs);
+
+    return user;
+  } catch (error) {
+    return new Error(error);
+  }
+};
+
+export {
+  create,
+  deleteById,
+  get,
+  getByCredentials,
+  getByEmail,
+  getById,
+  signInWithGoogle,
+};
