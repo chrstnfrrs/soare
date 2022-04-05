@@ -21,6 +21,12 @@ const deleteById = async (id) => {
   return isDeleted;
 };
 
+const get = async () => {
+  const users = await UserRepository.select();
+
+  return users;
+}
+
 const getByCredentials = async (credentials) => {
   const user = await UserRepository.selectByEmail(credentials.email);
 
@@ -75,6 +81,7 @@ const signInWithGoogle = async (userArgs) => {
 export {
   create,
   deleteById,
+  get,
   getByCredentials,
   getByEmail,
   getById,
