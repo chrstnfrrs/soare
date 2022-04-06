@@ -1,5 +1,3 @@
-import { UserInputError } from 'apollo-server-express';
-
 import * as UserServices from '../services/user-services';
 
 const create = async (_root, args) => {
@@ -45,7 +43,7 @@ const getByCredentials = async (_root, args) => {
 
     return user;
   } catch (error) {
-    return new UserInputError(error);
+    return new Error(error);
   }
 };
 
