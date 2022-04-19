@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
       - name: Start docker
-        run: cd apps/db/ && yarn docker:postgres:start
+        run: cd apps/db/ && yarn docker:postgres:acceptance
       - name: Prisma Generate
         run: cd apps/api/ && yarn db:generate
       - name: Run migrations

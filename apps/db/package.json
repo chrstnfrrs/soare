@@ -4,6 +4,7 @@
   "author": "chrstnfrrs",
   "license": "MIT",
   "scripts": {
+    "docker:postgres:acceptance": "docker compose -f docker-compose-acceptance.yml up -d ",
     "docker:postgres:start": "docker compose up -d",
     "docker:postgres:stop": "docker compose down",
     "docker:postgres": "docker compose down && docker compose up -d"
