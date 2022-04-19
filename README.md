@@ -2,7 +2,7 @@
 
 This is the soare project.
 
-[![Format](https://github.com/chrstnfrrs/soare/actions/workflows/format.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/format.yaml) [![Lint](https://github.com/chrstnfrrs/soare/actions/workflows/lint.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/lint.yaml) [![Tests](https://github.com/chrstnfrrs/soare/actions/workflows/test.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/test.yaml) [![Coverage](https://github.com/chrstnfrrs/soare/actions/workflows/coverage.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/coverage.yaml)
+[![Format](https://github.com/chrstnfrrs/soare/actions/workflows/format.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/format.yaml) [![Lint](https://github.com/chrstnfrrs/soare/actions/workflows/lint.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/lint.yaml) [![Tests](https://github.com/chrstnfrrs/soare/actions/workflows/test.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/test.yaml) [![Coverage](https://github.com/chrstnfrrs/soare/actions/workflows/coverage.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/coverage.yaml) [![Acceptance](https://github.com/chrstnfrrs/soare/actions/workflows/acceptance.yaml/badge.svg)](https://github.com/chrstnfrrs/soare/actions/workflows/acceptance.yaml)
 
 ## Getting Started
 
