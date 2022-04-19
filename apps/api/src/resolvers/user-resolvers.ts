@@ -1,7 +1,4 @@
-import { UserInputError } from 'apollo-server-express';
-
 import * as UserServices from '../services/user-services';
-import * as UserRepository from '../repositories/user-repositories';
 
 const create = async (_root, args) => {
   try {
@@ -28,9 +25,13 @@ const deleteById = async (_root, args) => {
 };
 
 const get = async () => {
-  const users = await UserRepository.select();
+  try {
+    const users = await UserServices.get();
 
-  return users;
+    return users;
+  } catch (error) {
+    return new Error(error);
+  }
 };
 
 const getByCredentials = async (_root, args) => {
@@ -41,7 +42,7 @@ const getByCredentials = async (_root, args) => {
 
     return user;
   } catch (error) {
-    return new UserInputError(error);
+    return new Error(error);
   }
 };
 

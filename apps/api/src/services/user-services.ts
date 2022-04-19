@@ -10,9 +10,15 @@ const create = async (userArgs) => {
   // eslint-disable-next-line no-param-reassign
   userArgs.email = userArgs.email.toLowerCase();
 
-  const user = await UserRepository.create(userArgs);
+  try {
+    const user = await UserRepository.create(userArgs);
 
-  return user;
+    return user;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error('UserService create error:', error);
+    throw new Error('Unable to create user');
+  }
 };
 
 const deleteById = async (id) => {
@@ -21,7 +27,16 @@ const deleteById = async (id) => {
   return isDeleted;
 };
 
+const get = async () => {
+  const users = await UserRepository.select();
+
+  return users;
+};
+
 const getByCredentials = async (credentials) => {
+  // eslint-disable-next-line no-param-reassign
+  credentials.email = credentials.email.toLowerCase();
+
   const user = await UserRepository.selectByEmail(credentials.email);
 
   if (!user) {
@@ -61,13 +76,15 @@ const getById = async (id) => {
 };
 
 const signInWithGoogle = async (userArgs) => {
-  const existingUser = await UserRepository.selectByEmail(userArgs.email);
+  const existingUser = await UserRepository.selectByEmail(
+    userArgs.email?.toLowerCase(),
+  );
 
   if (existingUser) {
     return existingUser;
   }
 
-  const googleUser = await UserRepository.createGoogle(userArgs);
+  const googleUser = await UserRepository.create(userArgs);
 
   return googleUser;
 };
@@ -75,6 +92,7 @@ const signInWithGoogle = async (userArgs) => {
 export {
   create,
   deleteById,
+  get,
   getByCredentials,
   getByEmail,
   getById,

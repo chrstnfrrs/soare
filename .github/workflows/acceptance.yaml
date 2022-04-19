@@ -1,0 +1,38 @@
+name: 'Acceptance'
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+    env:
+      DATABASE_URL: ${{secrets.DATABASE_URL}}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Start docker
+        run: cd apps/db/ && yarn docker:postgres:acceptance
+      - name: Prisma Generate
+        run: cd apps/api/ && yarn db:generate
+      - name: Run migrations
+        run: cd apps/api/ && yarn db:migrate:dev
+      - name: Build
+        run: cd apps/api/ && yarn build
+      - name: Acceptance tests
+        run: |
+          cd apps/api/ && yarn start &
+          sleep 20 &&
+          ls && cd apps/api/ && yarn acceptance

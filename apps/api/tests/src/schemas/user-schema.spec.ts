@@ -6,15 +6,15 @@ describe('Given the user schema', () => {
   test('Then it should match', () => {
     expect(UserSchema).toStrictEqual(gql`
       extend type Query {
+        user(id: ID!): User!
         userByCredentials(input: UserCredentials!): User!
         userByEmail(email: String!): User!
-        userById(id: ID!): User!
         users: [User]!
       }
 
       extend type Mutation {
         createUser(input: UserInput!): User!
-        deleteUserById(id: ID!): Boolean!
+        deleteUser(id: ID!): Boolean!
         signInWithGoogle(input: GoogleUserInput!): User!
       }
 

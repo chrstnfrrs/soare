@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import { VitePluginNode } from 'vite-plugin-node';
+import { configDefaults } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,7 +21,7 @@ export default defineConfig({
     coverage: {
       all: true,
       branches: 100,
-      exclude: ['**/tests/**', '**/prisma/**'],
+      exclude: ['**/tests/**', '**/prisma/**', 'src/index.ts'],
       functions: 100,
       include: ['**/src/**'],
       lines: 100,
@@ -28,5 +29,6 @@ export default defineConfig({
       statements: 100,
     },
     globals: true,
+    exclude: [...configDefaults.exclude, 'acceptance/**/*'],
   },
 });
