@@ -30,9 +30,8 @@ const get = async () => {
 
     return users;
   } catch (error) {
-    return new Error(error)
+    return new Error(error);
   }
-
 };
 
 const getByCredentials = async (_root, args) => {

@@ -78,6 +78,7 @@ describe('UserResolvers', () => {
     describe('When sucessful', () => {
       beforeEach(async () => {
         const res = chance.pickone([chance.string(), undefined]);
+
         expected = Boolean(res);
         id = chance.string();
         args.id = id;
@@ -156,7 +157,7 @@ describe('UserResolvers', () => {
     describe('When sucessful', () => {
       beforeEach(async () => {
         expected = chance.string();
-        input = chance.string()
+        input = chance.string();
         args.input = input;
         // @ts-ignore
         UserServices.getByCredentials.mockResolvedValue(expected);
@@ -176,8 +177,8 @@ describe('UserResolvers', () => {
       beforeEach(async () => {
         error = chance.string();
         expected = new Error(error);
-        input = chance.string()
-        args.input = input
+        input = chance.string();
+        args.input = input;
         // @ts-ignore
         UserServices.getByCredentials.mockRejectedValue(error);
         actual = await UserResolvers.getByCredentials(root, args);
@@ -194,11 +195,12 @@ describe('UserResolvers', () => {
     });
   });
   describe('Given getByEmail', () => {
-    let email
+    let email;
+
     describe('When sucessful', () => {
       beforeEach(async () => {
         expected = chance.string();
-        email = chance.string()
+        email = chance.string();
         args.email = email;
         // @ts-ignore
         UserServices.getByEmail.mockResolvedValue(expected);
@@ -218,8 +220,8 @@ describe('UserResolvers', () => {
       beforeEach(async () => {
         error = chance.string();
         expected = new Error(error);
-        email = chance.string()
-        args.email = email
+        email = chance.string();
+        args.email = email;
         // @ts-ignore
         UserServices.getByEmail.mockRejectedValue(error);
         actual = await UserResolvers.getByEmail(root, args);
@@ -236,11 +238,10 @@ describe('UserResolvers', () => {
     });
   });
   describe('Given getById', () => {
-    let id
     describe('When sucessful', () => {
       beforeEach(async () => {
         expected = chance.string();
-        id = chance.string()
+        id = chance.string();
         args.id = id;
         // @ts-ignore
         UserServices.getById.mockResolvedValue(expected);
@@ -260,8 +261,8 @@ describe('UserResolvers', () => {
       beforeEach(async () => {
         error = chance.string();
         expected = new Error(error);
-        id = chance.string()
-        args.id = id
+        id = chance.string();
+        args.id = id;
         // @ts-ignore
         UserServices.getById.mockRejectedValue(error);
         actual = await UserResolvers.getById(root, args);
@@ -281,7 +282,7 @@ describe('UserResolvers', () => {
     describe('When sucessful', () => {
       beforeEach(async () => {
         expected = chance.string();
-        input = chance.string()
+        input = chance.string();
         args.input = input;
         // @ts-ignore
         UserServices.signInWithGoogle.mockResolvedValue(expected);
@@ -301,8 +302,8 @@ describe('UserResolvers', () => {
       beforeEach(async () => {
         error = chance.string();
         expected = new Error(error);
-        input = chance.string()
-        args.input = input
+        input = chance.string();
+        args.input = input;
         // @ts-ignore
         UserServices.signInWithGoogle.mockRejectedValue(error);
         actual = await UserResolvers.signInWithGoogle(root, args);

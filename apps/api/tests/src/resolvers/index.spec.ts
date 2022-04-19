@@ -13,14 +13,14 @@ describe('Given resolver map', () => {
       {
         Query: {
           hello: HelloResolvers.get,
-          users: UserResolvers.get,
+          user: UserResolvers.getById,
           userByCredentials: UserResolvers.getByCredentials,
           userByEmail: UserResolvers.getByEmail,
-          userById: UserResolvers.getById,
+          users: UserResolvers.get,
         },
         Mutation: {
           createUser: UserResolvers.create,
-          deleteUserById: UserResolvers.deleteById,
+          deleteUser: UserResolvers.deleteById,
           signInWithGoogle: UserResolvers.signInWithGoogle,
         },
       },

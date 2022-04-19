@@ -1,5 +1,9 @@
 {
   "pipeline": {
+    "acceptance": {
+      "outputs": [],
+      "cache": false
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**"]

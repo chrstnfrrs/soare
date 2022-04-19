@@ -2,6 +2,7 @@ import * as React from 'react';
 import { vi } from 'vitest';
 import { useMutation } from '@apollo/client';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import Chance from 'chance';
 
 import { fireEvent, render, screen, waitFor } from '../../../utils/test-utils';
@@ -13,6 +14,13 @@ vi.mock('@apollo/client', () => ({
 vi.mock('next-auth/react', () => ({
   signIn: vi.fn(),
 }));
+vi.mock('next/router', () => ({
+  useRouter: vi.fn().mockReturnValue({
+    query: {
+      error: 'asdf'
+    }
+  })
+}))
 vi.mock('../../../../src/graphql/mutations/auth-mutations');
 
 const chance = new Chance();
@@ -105,9 +113,7 @@ describe('Given <Register />', () => {
     });
 
     test('Then should display button as loading', () => {
-      const button = screen.getByTestId('register-button');
       const spinner = screen.getByTestId('loading');
-      expect(button).toBeDisabled();
       expect(spinner).toBeVisible();
     });
   });
