@@ -31,6 +31,6 @@ jobs:
         run: cd apps/api/ && yarn db:migrate:dev
       - name: Acceptance tests
         run: |
-          yarn dev &
-          sleep 10 &&
+          cd apps/api/ && yarn dev &
+          sleep 20 &&
           yarn acceptance
