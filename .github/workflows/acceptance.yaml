@@ -26,7 +26,7 @@ jobs:
       - name: Start docker
         run: cd apps/db/ && yarn docker:postgres:start
       - name: Prisma Generate
-        run: cd ../api/ && yarn db:generate
+        run: cd apps/api/ && yarn db:generate
       - name: Run migrations
         run: yarn db:migrate:dev
       - name: Acceptance tests
