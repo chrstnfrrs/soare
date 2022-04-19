@@ -17,10 +17,10 @@ vi.mock('next-auth/react', () => ({
 vi.mock('next/router', () => ({
   useRouter: vi.fn().mockReturnValue({
     query: {
-      error: 'asdf'
-    }
-  })
-}))
+      error: 'asdf',
+    },
+  }),
+}));
 vi.mock('../../../../src/graphql/mutations/auth-mutations');
 
 const chance = new Chance();

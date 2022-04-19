@@ -139,7 +139,9 @@ describe('UserServices', () => {
       });
       test('Then should get user by email', () => {
         expect(UserRepositories.selectByEmail).toHaveBeenCalledTimes(1);
-        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(email.toLowerCase());
+        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(
+          email.toLowerCase(),
+        );
       });
       test('Then should validated password', () => {
         expect(bcrypt.compare).toHaveBeenCalledTimes(1);
@@ -172,7 +174,9 @@ describe('UserServices', () => {
       });
       test('Then should get user by email', () => {
         expect(UserRepositories.selectByEmail).toHaveBeenCalledTimes(1);
-        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(email.toLowerCase());
+        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(
+          email.toLowerCase(),
+        );
       });
       test('Then should return user', () => {
         expect(actual).toStrictEqual(expected);
@@ -207,7 +211,9 @@ describe('UserServices', () => {
       });
       test('Then should get user by email', () => {
         expect(UserRepositories.selectByEmail).toHaveBeenCalledTimes(1);
-        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(email.toLowerCase());
+        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(
+          email.toLowerCase(),
+        );
       });
       test('Then should validated password', () => {
         expect(bcrypt.compare).toHaveBeenCalledTimes(1);
@@ -220,7 +226,6 @@ describe('UserServices', () => {
   });
 
   describe('Given getByEmail', () => {
-
     describe('When successful', () => {
       beforeEach(async () => {
         email = chance.guid();
@@ -314,7 +319,7 @@ describe('UserServices', () => {
     let userArgs;
 
     describe('When user already exists', () => {
-      beforeEach(async () => {        
+      beforeEach(async () => {
         email = chance.email();
         result = chance.string();
         userArgs = {
@@ -329,7 +334,9 @@ describe('UserServices', () => {
       });
       test('Then should select by email', () => {
         expect(UserRepositories.selectByEmail).toHaveBeenCalledTimes(1);
-        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(email.toLowerCase());
+        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(
+          email.toLowerCase(),
+        );
       });
       test('Then should return user', () => {
         expect(actual).toStrictEqual(expected);
@@ -353,7 +360,9 @@ describe('UserServices', () => {
       });
       test('Then should select by email', () => {
         expect(UserRepositories.selectByEmail).toHaveBeenCalledTimes(1);
-        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(email.toLowerCase());
+        expect(UserRepositories.selectByEmail).toHaveBeenCalledWith(
+          email.toLowerCase(),
+        );
       });
       test('Then should create', () => {
         expect(UserRepositories.create).toHaveBeenCalledTimes(1);

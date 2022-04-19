@@ -16,7 +16,7 @@ const create = async (userArgs) => {
     return user;
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error('UserService create error:', error)
+    console.error('UserService create error:', error);
     throw new Error('Unable to create user');
   }
 };
@@ -76,7 +76,9 @@ const getById = async (id) => {
 };
 
 const signInWithGoogle = async (userArgs) => {
-  const existingUser = await UserRepository.selectByEmail(userArgs.email?.toLowerCase());
+  const existingUser = await UserRepository.selectByEmail(
+    userArgs.email?.toLowerCase(),
+  );
 
   if (existingUser) {
     return existingUser;
