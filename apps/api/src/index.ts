@@ -17,6 +17,8 @@ await server.start();
 server.applyMiddleware({ app });
 
 if (process.env.NODE_ENV === 'production') {
+  // eslint-disable-next-line no-console
+  console.log('Server started on port 30004');
   app.listen(3004);
 }
 
