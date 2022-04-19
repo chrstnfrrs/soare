@@ -35,4 +35,4 @@ jobs:
         run: |
           cd apps/api/ && yarn start &
           sleep 20 &&
-          cd apps/api/ && yarn acceptance
+          ls && cd apps/api/ && yarn acceptance
