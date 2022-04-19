@@ -28,7 +28,7 @@ jobs:
       - name: Prisma Generate
         run: cd apps/api/ && yarn db:generate
       - name: Run migrations
-        run: yarn db:migrate:dev
+        run: cd apps/api/ && yarn db:migrate:dev
       - name: Acceptance tests
         run: |
           yarn dev &
