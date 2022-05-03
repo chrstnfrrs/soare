@@ -8,7 +8,7 @@ const Auth = ({ children }) => {
     return children;
   }
 
-  return undefined;
+  return null;
 };
 
 export default Auth;

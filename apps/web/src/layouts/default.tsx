@@ -1,20 +1,21 @@
-import { Container } from '@mui/material';
+import styled from '@emotion/styled';
 
 import Nav from '../components/ui/nav';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 4rem);
+  maxwidth: 100vw !important;
+  padding: 2rem;
+  background-color: ${props => props.theme.colors.background.primary};
+`
 
 const DefaultLayout = ({ children }) => {
   return (
     <>
       <Nav />
-      <Container
-        disableGutters
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: 'calc(100vh - 4rem)',
-          p: 4,
-        }}
-      >
+      <Container>
         {children}
       </Container>
     </>

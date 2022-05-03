@@ -10,14 +10,18 @@ const UserByCredentials = `
 const UserByEmail = `
   query UserByEmail($email: String!) {
     userByEmail(email: $email) {
+      id
       email
+      firstName
+      lastName
     }
   }
 `;
 
-const UserById = `
-  query UserById($id: ID!) {
-    userById(id: $id) {
+const User = `
+  query User($id: ID!) {
+    user(id: $id) {
+      id
       email
       firstName
       lastName
@@ -33,4 +37,4 @@ const AllUsers = `
   }
 `;
 
-export { UserByCredentials, UserByEmail, UserById, AllUsers };
+export { UserByCredentials, UserByEmail, User, AllUsers };

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Box } from '@mui/material';
 import { getToken } from 'next-auth/jwt';
 import Link from 'next/link';
 import { gql, useQuery } from '@apollo/client';
@@ -7,20 +6,18 @@ import { gql, useQuery } from '@apollo/client';
 
 import * as UserQueries from '../../graphql/queries/user-queries';
 import { query } from '../../graphql/adapters/client';
+import { useSession } from 'next-auth/react';
+import H1 from '../../components/ui/h1';
+import H5 from '../../components/ui/h5';
+import P from '../../components/ui/p';
 
-const Profile = ({ user }) => {
-  const { data } = useQuery(gql`
-    ${UserQueries.AllUsers}
-  `);
-
-  return (
-    <Box>
-      <Link href={'/'}>Go to Home</Link>
-      <p>Email: {JSON.stringify(user)}</p>
-      <p>data: {JSON.stringify(data)}</p>
-    </Box>
-  );
-};
+const Profile = ({ user }) => (
+  <>
+    <H1>Welcome {user.firstName}!</H1>
+    <H5 as='strong'>Email</H5>
+    <P>{user.email}</P>
+  </>
+);
 
 const getServerSideProps = async (context) => {
   const token = await getToken({
@@ -36,17 +33,20 @@ const getServerSideProps = async (context) => {
     return { props: {} };
   }
 
-  const { data } = await query({
-    query: UserQueries.UserById,
+  const { data, error } = await query({
+    query: UserQueries.User,
     variables: {
       // @ts-ignore
       id: token.user.id,
     },
   });
 
+  console.log('data', data)
+  console.log('error', error)
+
   return {
     props: {
-      user: data || {},
+      user: data.user || {},
     },
   };
 };
