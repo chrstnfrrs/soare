@@ -6,12 +6,16 @@ This is the soare project.
 
 ## Getting Started
 
-- `yarn install`: install dependencies
+- `yarn`: install dependencies
 - `yarn dev`: start all applications
 
 **Helpful scrips**
 
-- `yarn format`: format all applications with prettier
+- `yarn format`: format all applications with prettier.
+- `yarn lint`: validate code preferences with eslint.
+- `yarn test`: run test suite.
+- `yarn coverage`: run test suite with coverage output.
+- `yarn acceptance`: run end to end tests. **Dev server must be running**
 
 ## Apps and Packages
 
