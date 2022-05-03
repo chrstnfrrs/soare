@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const Row = styled.div`
-    display: flex;
-    flex: 1;
-    width: 100%;
-`
+  display: flex;
+  flex: 1;
+  width: 100%;
+`;
 
 const StyledDivider = styled.div`
   width: 100%;
@@ -13,9 +13,9 @@ const StyledDivider = styled.div`
 `;
 
 const Divider = () => (
-    <Row>
-        <StyledDivider />
-    </Row>
-)
+  <Row>
+    <StyledDivider />
+  </Row>
+);
 
-export default Divider
+export default Divider;

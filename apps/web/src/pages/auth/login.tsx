@@ -43,42 +43,40 @@ const Login = () => {
   };
 
   return (
-      <AuthCard>
-        <Col align='center' gap='0.5'>
-          <H3 as='h1'>Welcome Back</H3>
-          {Boolean(error) && <SmallText color='error'>{error}</SmallText>}
-        </Col>
-        <AuthForm>
-          <AuthFormInputs>
-            <TextField
-              label='Email'
-              name='email'
-              onChange={changeEmail}
-              onKeyDown={handleKeyDown}
-              value={email}
-            />
-            <TextField
-              label='Password'
-              name='password'
-              onChange={changePassword}
-              onKeyDown={handleKeyDown}
-              type='password'
-              value={password}
-            />
-          </AuthFormInputs>
-          <Button onClick={loginCredentials}>
-            Sign In
-          </Button>
-          <Row align='center' gap='1'>
-            <Divider />
-            <SmallText>or sign in with</SmallText>
-            <Divider />
-          </Row>
-          <Button color='secondary' onClick={loginGoogle}>
-            Google
-          </Button>
-        </AuthForm>
-      </AuthCard>
+    <AuthCard>
+      <Col align='center' gap='0.5'>
+        <H3 as='h1'>Welcome Back</H3>
+        {Boolean(error) && <SmallText color='error'>{error}</SmallText>}
+      </Col>
+      <AuthForm>
+        <AuthFormInputs>
+          <TextField
+            label='Email'
+            name='email'
+            onChange={changeEmail}
+            onKeyDown={handleKeyDown}
+            value={email}
+          />
+          <TextField
+            label='Password'
+            name='password'
+            onChange={changePassword}
+            onKeyDown={handleKeyDown}
+            type='password'
+            value={password}
+          />
+        </AuthFormInputs>
+        <Button onClick={loginCredentials}>Sign In</Button>
+        <Row align='center' gap='1'>
+          <Divider />
+          <SmallText>or sign in with</SmallText>
+          <Divider />
+        </Row>
+        <Button color='secondary' onClick={loginGoogle}>
+          Google
+        </Button>
+      </AuthForm>
+    </AuthCard>
   );
 };
 

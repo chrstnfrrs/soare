@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import selectColor from "../../../selectors/theme-selectors/color-selector";
+import styled from '@emotion/styled';
+import selectColor from '../../../selectors/theme-selectors/color-selector';
 
 const SmallText = styled.p`
   color: ${selectColor};
@@ -7,4 +7,4 @@ const SmallText = styled.p`
   margin: 0;
 `;
 
-export default SmallText
+export default SmallText;

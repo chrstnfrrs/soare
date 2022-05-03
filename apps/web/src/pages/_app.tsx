@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ApolloProvider } from '@apollo/client';
-import { ThemeProvider } from '@emotion/react'
+import { ThemeProvider } from '@emotion/react';
 import { SessionProvider } from 'next-auth/react';
 
 import { client } from '../graphql/adapters/client';
@@ -15,7 +15,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
       palette: {
         primary: {
           main: '#186245',
-          contrastText: '#FFFFFF'
+          contrastText: '#FFFFFF',
         },
         secondary: {
           main: '#ffffff',
@@ -25,12 +25,12 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
       },
       text: {
         primary: '#101010',
-        error: '#B81430'
+        error: '#B81430',
       },
       background: {
         primary: '#FFFFFF',
-        secondary: '#EFEFEF'
-      }
+        secondary: '#EFEFEF',
+      },
     },
   };
 

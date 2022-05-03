@@ -41,8 +41,8 @@ const getServerSideProps = async (context) => {
     },
   });
 
-  console.log('data', data)
-  console.log('error', error)
+  console.log('data', data);
+  console.log('error', error);
 
   return {
     props: {

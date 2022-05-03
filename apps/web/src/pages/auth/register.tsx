@@ -33,11 +33,11 @@ const Register = () => {
 
   const [createUser] = useMutation(RegisterUser);
 
-  const changeEmail = (e) => setEmail(e.target.value)
-  const changeFirstName = (e) => setFirstName(e.target.value)
-  const changeLastName = (e) => setLastName(e.target.value)
-  const changePassword = (e) => setPassword(e.target.value)
-  const changeConfirmPassword = (e) => setConfirmPassword(e.target.value)
+  const changeEmail = (e) => setEmail(e.target.value);
+  const changeFirstName = (e) => setFirstName(e.target.value);
+  const changeLastName = (e) => setLastName(e.target.value);
+  const changePassword = (e) => setPassword(e.target.value);
+  const changeConfirmPassword = (e) => setConfirmPassword(e.target.value);
 
   const registerUser = () => {
     createUser({
@@ -68,61 +68,59 @@ const Register = () => {
         {Boolean(error) && <SmallText color='error'>{error}</SmallText>}
       </Col>
       <AuthForm>
-          <AuthFormInputs>
-            <Row gap='1'>
-              <TextField
-                label='First Name'
-                name='first name'
-                onChange={changeFirstName}
-                onKeyDown={handleKeyDown}
-                value={email}
-              />
-              <TextField
-                label='Last Name'
-                name='last name'
-                onChange={changeLastName}
-                onKeyDown={handleKeyDown}
-                value={email}
-              />
-            </Row>
+        <AuthFormInputs>
+          <Row gap='1'>
             <TextField
-              label='Email'
-              name='email'
-              onChange={changeEmail}
+              label='First Name'
+              name='first name'
+              onChange={changeFirstName}
               onKeyDown={handleKeyDown}
               value={email}
             />
             <TextField
-              label='Password'
-              name='password'
-              onChange={changePassword}
+              label='Last Name'
+              name='last name'
+              onChange={changeLastName}
               onKeyDown={handleKeyDown}
-              type='password'
-              value={password}
+              value={email}
             />
-            <TextField
-              label='Confirm Password'
-              name='password'
-              onChange={changeConfirmPassword}
-              onKeyDown={handleKeyDown}
-              type='password'
-              value={confirmPassword}
-            />
-          </AuthFormInputs>
-          <Button onClick={registerUser}>
-            Register
-          </Button>
-          <Row align='center' gap='1'>
-            <Divider />
-            <SmallText>or sign up with</SmallText>
-            <Divider />
           </Row>
-          <Button color='secondary' onClick={signinGoogle}>
-            Google
-          </Button>
+          <TextField
+            label='Email'
+            name='email'
+            onChange={changeEmail}
+            onKeyDown={handleKeyDown}
+            value={email}
+          />
+          <TextField
+            label='Password'
+            name='password'
+            onChange={changePassword}
+            onKeyDown={handleKeyDown}
+            type='password'
+            value={password}
+          />
+          <TextField
+            label='Confirm Password'
+            name='password'
+            onChange={changeConfirmPassword}
+            onKeyDown={handleKeyDown}
+            type='password'
+            value={confirmPassword}
+          />
+        </AuthFormInputs>
+        <Button onClick={registerUser}>Register</Button>
+        <Row align='center' gap='1'>
+          <Divider />
+          <SmallText>or sign up with</SmallText>
+          <Divider />
+        </Row>
+        <Button color='secondary' onClick={signinGoogle}>
+          Google
+        </Button>
       </AuthForm>
     </AuthCard>
-  )
+  );
 };
 
 Register.getLayout = (page) => <Navless>{page}</Navless>;

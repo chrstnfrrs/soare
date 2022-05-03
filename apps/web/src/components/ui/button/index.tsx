@@ -1,5 +1,9 @@
-import styled from "@emotion/styled";
-import { selectPaletteBorder, selectPaletteContrast, selectPaletteMain } from "../../../selectors/theme-selectors/palette-selectors";
+import styled from '@emotion/styled';
+import {
+  selectPaletteBorder,
+  selectPaletteContrast,
+  selectPaletteMain,
+} from '../../../selectors/theme-selectors/palette-selectors';
 
 const StyledButton = styled.button`
   cursor: pointer;
@@ -21,7 +25,12 @@ const StyledButton = styled.button`
 `;
 
 const Button = (props) => (
-    <StyledButton as={props.href ? 'a' : undefined} type='button' tabIndex={0} {...props} />
-)
+  <StyledButton
+    as={props.href ? 'a' : undefined}
+    type='button'
+    tabIndex={0}
+    {...props}
+  />
+);
 
-export default Button
+export default Button;

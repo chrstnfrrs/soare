@@ -1,7 +1,7 @@
 import NextHead from 'next/head';
 
 const Head = ({ description, title }) => {
-  const formattedTitle = `${title ? `${title} - `: ''}Soare`;
+  const formattedTitle = `${title ? `${title} - ` : ''}Soare`;
   const formattedDescription = description ?? 'Soare';
 
   return (

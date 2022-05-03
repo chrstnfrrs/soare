@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import selectBackground from '../../../selectors/theme-selectors/background-selector';
 
 type CardProps = {
-  background?: string
-}
+  background?: string;
+};
 
 const Card = styled.div<CardProps>`
   background: ${selectBackground};

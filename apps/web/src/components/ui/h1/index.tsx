@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import selectColor from "../../../selectors/theme-selectors/color-selector";
+import selectColor from '../../../selectors/theme-selectors/color-selector';
 
 type H1Props = {
-    color?: string
-}
+  color?: string;
+};
 
 const H1 = styled.h1<H1Props>`
   color: ${selectColor};
@@ -13,4 +13,4 @@ const H1 = styled.h1<H1Props>`
   padding-bottom: 1rem;
 `;
 
-export default H1
+export default H1;

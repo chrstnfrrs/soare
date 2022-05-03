@@ -8,16 +8,14 @@ const Container = styled.div`
   height: calc(100vh - 4rem);
   maxwidth: 100vw !important;
   padding: 2rem;
-  background-color: ${props => props.theme.colors.background.primary};
-`
+  background-color: ${(props) => props.theme.colors.background.primary};
+`;
 
 const DefaultLayout = ({ children }) => {
   return (
     <>
       <Nav />
-      <Container>
-        {children}
-      </Container>
+      <Container>{children}</Container>
     </>
   );
 };

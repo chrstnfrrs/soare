@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import selectColor from "../../../selectors/theme-selectors/color-selector";
+import styled from '@emotion/styled';
+import selectColor from '../../../selectors/theme-selectors/color-selector';
 
 const Label = styled.label`
   color: ${selectColor};
@@ -7,4 +7,4 @@ const Label = styled.label`
   padding-bottom: 0.25rem;
 `;
 
-export default Label
+export default Label;

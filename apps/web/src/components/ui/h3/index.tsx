@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import selectColor from "../../../selectors/theme-selectors/color-selector";
+import selectColor from '../../../selectors/theme-selectors/color-selector';
 
 type H3Props = {
-    color?: string
-}
+  color?: string;
+};
 
 const H3 = styled.h3<H3Props>`
   color: ${selectColor};
@@ -12,4 +12,4 @@ const H3 = styled.h3<H3Props>`
   font-weight: 600;
 `;
 
-export default H3
+export default H3;

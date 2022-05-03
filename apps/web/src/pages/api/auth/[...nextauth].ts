@@ -54,7 +54,7 @@ export default NextAuth({
           },
         });
 
-        token.user = data.userByEmail
+        token.user = data.userByEmail;
       }
 
       return token;

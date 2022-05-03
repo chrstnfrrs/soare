@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import selectColor from "../../../selectors/theme-selectors/color-selector";
+import styled from '@emotion/styled';
+import selectColor from '../../../selectors/theme-selectors/color-selector';
 
 const Input = styled.input`
   width: 100%;
@@ -10,4 +10,4 @@ const Input = styled.input`
   border-radius: 0.125rem;
 `;
 
-export default Input
+export default Input;

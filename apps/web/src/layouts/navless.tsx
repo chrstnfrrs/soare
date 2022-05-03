@@ -6,9 +6,9 @@ const Container = styled.div`
   maxwidth: 100vw !important;
   align-items: center;
   justify-content: center;
-  background-color: ${props => props.theme.colors.background.primary};
+  background-color: ${(props) => props.theme.colors.background.primary};
   @media (min-width: 660px) {
-    background-color: ${props => props.theme.colors.background.secondary};
+    background-color: ${(props) => props.theme.colors.background.secondary};
   }
 `;
 

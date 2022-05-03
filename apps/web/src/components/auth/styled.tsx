@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const AuthFormInputs = styled.div`
   width: 100%;
@@ -7,4 +7,4 @@ const AuthFormInputs = styled.div`
   gap: 1rem;
 `;
 
-export default AuthFormInputs
+export default AuthFormInputs;

@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import selectColor from "../../../selectors/theme-selectors/color-selector";
+import styled from '@emotion/styled';
+import selectColor from '../../../selectors/theme-selectors/color-selector';
 
 const P = styled.p`
   color: ${selectColor};
@@ -7,4 +7,4 @@ const P = styled.p`
   margin: 0;
 `;
 
-export default P
+export default P;
