@@ -38,14 +38,23 @@ export default NextAuth({
 
       return (
         Boolean(data?.userByEmail) ||
-        'http://localhost:3000/auth/register?error=Unable to Login'
+        'http://localhost:3000/auth/login?error=No account assocaited to email address'
       );
     },
     session: ({ session }) => session,
-    jwt: ({ token, user }) => {
+    jwt: async ({ token, user }) => {
       if (user) {
         // eslint-disable-next-line no-param-reassign
         token.user = user;
+      } else {
+        const { data } = await query({
+          query: UserQueries.UserByEmail,
+          variables: {
+            email: token.email,
+          },
+        });
+
+        token.user = data.userByEmail
       }
 
       return token;
